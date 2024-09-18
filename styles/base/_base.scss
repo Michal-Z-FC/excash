@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  line-height: 1.4;
+  font-weight: normal;
+  font-family: "Kanit", sans-serif;
+  color: $white;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+button,
+input,
+select {
+  font-family: "Kanit", sans-serif;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+button,
+select {
+  cursor: pointer;
+}
