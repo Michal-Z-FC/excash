@@ -21,13 +21,19 @@
       <main class="excash-main-container">
         <section class="form-container">
           <form class="form" id="form">
-            <input type="text" name="amount" id="amount" class="amount-input" placeholder="Kwota" required />
+            <input type="text" name="amount" id="amount" class="amount-input" placeholder="Kwota" />
             <div class="select-form">
-              <select class="currencies-list" id="currencies-list" required>
-                <option>EUR</option>
+              <select class="currencies-list" id="currencies-list" name="currency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CHF">CHF</option>
               </select>
             </div>
-            <button type="submit" id="calculate-btn" class="calculate-btn">Oblicz</button>
+            <p class="help-block" id="help-block"></p>
+            <button type="submit" id="calculate-btn" class="calculate-btn">
+              Oblicz
+              <div class="loader" id="loader"></div>
+            </button>
           </form>
         </section>
         <section class="result-container">
@@ -35,5 +41,8 @@
         </section>
       </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
