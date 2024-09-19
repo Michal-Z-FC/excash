@@ -91,7 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function calculateAndDisplayResult(amount, mid, currency) {
     const result = document.querySelector("#result");
     amount = convertToFloat(amount);
-    const value = Math.round(amount * mid * 100) / 100;
+    amount = Math.ceil(amount * 100) / 100;
+    mid = Math.ceil(mid * 100) / 100;
+
+    const value = amount * mid;
     const resultContent = `${amount} ${currency} to <span class="highlighted">${value} PLN</span>`;
     result.innerHTML = resultContent;
   }
