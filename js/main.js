@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mid = Math.ceil(mid * 100) / 100;
 
     const value = amount * mid;
-    const resultContent = `${amount} ${currency} to <span class="highlighted">${value} PLN</span>`;
+    const resultContent = `${amount} ${currency} to <span class="highlighted">${Math.round(value * 100) / 100} PLN</span>`;
     result.innerHTML = resultContent;
   }
 });
