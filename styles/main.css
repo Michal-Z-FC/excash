@@ -12,8 +12,12 @@ html {
 }
 
 body {
+  display: flex;
   width: 100vw;
   min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #060d0c;
   line-height: 1.4;
   font-weight: normal;
   font-family: "Kanit", sans-serif;
@@ -41,11 +45,8 @@ select {
   cursor: pointer;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #060d0c;
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
 }
 
 .excash-app {

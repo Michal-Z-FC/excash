@@ -3,15 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const formData = Array.from(new FormData(form).entries());
-    const amount = formData[0][1];
-    const currency = formData[1][1];
+    const amount = e.target.amount.value;
+    const currency = e.target.currency.value;
     const isValid = checkValidate(amount);
 
     if (isValid) {
       showLoader(true);
       getCurrency(amount, currency);
-      form.reset();
     }
   });
 
@@ -23,20 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         const data = response.data;
 
-        if (typeof data !== "object" || !data.code || !data.rates || data.rates === 0 || !Array.isArray(data.rates) || !data.rates[0].mid) {
-          modifyAndDisplayError("Nieodpowiednia struktura API. Proszę spróbować ponownie później!");
-          showLoader(false);
+        if (typeof data !== "object" || !data.rates || data.rates === 0 || !Array.isArray(data.rates) || !data.rates[0].mid) {
           throw new Error("Nieodpowiednia struktura API.");
         }
 
         const mid = data.rates[0].mid;
         calculateAndDisplayResult(amount, mid, currency);
-        showLoader(false);
+        form.reset();
       })
       .catch((err) => {
         modifyAndDisplayError("Problem z połączeniem z API. Spróbuj ponownie!");
-        showLoader(false);
         console.error("Problem z połączeniem z API.", err);
+      })
+      .finally(() => {
+        showLoader(false);
       });
   }
 

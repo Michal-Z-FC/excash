@@ -20,8 +20,8 @@
       </header>
       <main class="excash-main-container">
         <section class="form-container">
-          <form class="form" id="form">
-            <input type="text" name="amount" id="amount" class="amount-input" placeholder="Kwota" />
+          <form class="form" id="form" novalidate>
+            <input type="number" name="amount" id="amount" step="0.01" class="amount-input" placeholder="Kwota" />
             <div class="select-form">
               <select class="currencies-list" id="currencies-list" name="currency">
                 <option value="EUR">EUR</option>
